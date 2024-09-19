@@ -37,19 +37,19 @@ const Welcome = () => {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Title"
+              
             />
             <label>Description</label>
             <input
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Description"
+              
             />
              <label>Button Text</label>
             <input
               value={btntext}
               onChange={(e) => setBtntext(e.target.value)}
-              placeholder="Start"
+             
             />
              
             <button onClick={triggerFileUpload} className='custom-file-upload'>
@@ -74,10 +74,12 @@ const Welcome = () => {
         )}
       </div>
       <div className="display-content">
-        <h1>{title}</h1>
+       <div className='content-text'>
+       <h1>{title}</h1>
         <p>{description}</p>
-        {image && <img src={image} alt="Uploaded" />}
         <button>{btntext}</button>
+       </div>
+       {image && <img src={image} alt="Uploaded" />}
       </div>
     </div>
   );
