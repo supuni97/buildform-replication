@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Welcome.css';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Welcome = () => {
   const [activeTab, setActiveTab] = useState(null);
@@ -12,6 +14,10 @@ const Welcome = () => {
     setImage(URL.createObjectURL(e.target.files[0]));
   };
 
+  const triggerFileUpload = (e) =>{
+    document.getElementById('fileInput').click();
+  }
+
   return (
     <div className="welcome-container">
       <div className="modal">
@@ -23,7 +29,9 @@ const Welcome = () => {
         )}
         {activeTab === 'welcome' && (
           <div className="welcome-screen">
-            <button onClick={() => setActiveTab(null)}>Back</button>
+            <button onClick={() => setActiveTab(null)}>
+            <CloseIcon style={{ marginRight: '8px' }} />
+            </button>
             <label>Title</label>
             <input
               type="text"
@@ -43,7 +51,17 @@ const Welcome = () => {
               onChange={(e) => setBtntext(e.target.value)}
               placeholder="Start"
             />
-            <input type="file" onChange={handleImageUpload} />
+             
+            <button onClick={triggerFileUpload} className='custom-file-upload'>
+            <FileUploadIcon style={{ marginRight: '8px', fontSize: '20px' }}/>
+            Upload
+            </button>
+            <input
+              id="fileInput"
+              type="file"
+              style={{ display: 'none' }}
+              onChange={handleImageUpload}
+            />
           </div>
         )}
         {activeTab === 'email' && (

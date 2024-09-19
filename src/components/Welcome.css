@@ -66,3 +66,30 @@ img {
     flex: 1;
     padding: 20px;
 }
+
+.upload-Button{
+    color: #ffffff;
+}
+
+.custom-file-upload{
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+  }
+  
+  #fileInput {
+    display: none;
+  }
+  
