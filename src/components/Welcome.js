@@ -29,8 +29,8 @@ const Welcome = () => {
         )}
         {activeTab === 'welcome' && (
           <div className="welcome-screen">
-            <button onClick={() => setActiveTab(null)}>
-            <CloseIcon style={{ marginRight: '8px' }} />
+            <button className='close-btn' onClick={() => setActiveTab(null)}>
+            <CloseIcon />
             </button>
             <label>Title</label>
             <input
@@ -53,7 +53,8 @@ const Welcome = () => {
             />
              
             <button onClick={triggerFileUpload} className='custom-file-upload'>
-            <FileUploadIcon style={{ marginRight: '8px', fontSize: '20px' }}/>
+            <FileUploadIcon className='upload-icon'
+            />
             Upload
             </button>
             <input
