@@ -4,17 +4,21 @@ import FileUploadIcon from '@mui/icons-material/FileUpload';
 import CloseIcon from '@mui/icons-material/Close';
 import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import SquareIcon from '@mui/icons-material/Square';
+import { TextField } from '@mui/material';
+import SubdirectoryArrowLeftIcon from '@mui/icons-material/SubdirectoryArrowLeft';
+import DefaultImg from './Default.jpg'; 
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 const UiPage = () => {
-  const [activeTab, setActiveTab] = useState(null);
+  const [activeTab, setActiveTab] = useState('welcome');
   const [title, setTitle] = useState('Welcome to our form');
   const [description, setDescription] = useState('This is a description of the form');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState(DefaultImg); 
   const [btntext, setBtntext] = useState('Start');
   const [layout, setLayout] = useState('left'); 
   const [email, setEmail] = useState('Enter your email');
   const [contact, setContact] = useState('This will be used to contact you for next steps.');
-
+  const [emailError, setEmailError] = useState('');
 
   const handleImageUpload = (e) => {
     setImage(URL.createObjectURL(e.target.files[0]));
@@ -25,7 +29,7 @@ const UiPage = () => {
   };
 
   const handleRemoveImage = () => {
-    setImage(null);
+    setImage(DefaultImg); 
     document.getElementById('fileInput').value = null; 
   };
 
@@ -35,6 +39,17 @@ const UiPage = () => {
 
   const handleLayoutRight = () => {
     setLayout('right');
+  };
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    if (!newEmail.includes('.') || !newEmail.includes('@')) {
+      setEmailError('Invalid email address. Please include "@" and "."');
+    } else {
+      setEmailError('');
+    }
   };
 
   return (
@@ -77,10 +92,11 @@ const UiPage = () => {
               style={{ display: 'none' }}
               onChange={handleImageUpload}
             />
-            {image && <img src={image} alt="Uploaded"  className="modal-image" />}
-            {image && (
+            <img src={image} alt="Displayed" className="modal-image" /> 
+            {image !== DefaultImg && ( 
               <div>
                 <button onClick={handleRemoveImage} className='remove-image-btn'>Remove Image</button>
+                <div>
                 <label>Placement</label>
                 <button onClick={handleLayoutLeft} className='layout-button'>
                   <AlignHorizontalLeftIcon className='layout-icon' />
@@ -90,6 +106,7 @@ const UiPage = () => {
                   <SquareIcon className='layout-icon'/>
                   <AlignHorizontalLeftIcon className='layout-icon' />
                 </button>
+                </div>
               </div>
             )}
           </div>
@@ -99,11 +116,14 @@ const UiPage = () => {
             <button className='close-btn' onClick={() => setActiveTab(null)}>
               <CloseIcon />
             </button>
-            <label>Title</label>
-            <input
-              type="text"
+            <label>Email</label>
+            <TextField
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
+              error={!!emailError}
+              helperText={emailError}
+              fullWidth
+              margin="normal"
             />
             <label>Description</label>
             <input
@@ -118,21 +138,27 @@ const UiPage = () => {
           <div className='content-text'>
             <h1>{title}</h1>
             <p>{description}</p>
-            <button>{btntext}</button>
+            <div>
+              <button>{btntext}</button>
+              <label>press enter</label>
+              <SubdirectoryArrowLeftIcon />
+            </div>
           </div>
-          {image && <img src={image} alt="Uploaded" />}
+          <img src={image} alt="Displayed" />
         </div>
       )}
       {activeTab === 'email' && (
         <div className="display-content2">
           <div className='content-text'>
-            <h1>{email}</h1>
+            <h1>1
+            <ArrowRightAltIcon/>
+            {email}</h1>
             <p>{contact}</p>
-        <input
-            type="text" 
+            <input
+              type="text" 
               placeholder="Type here..." 
               className="underline-input"
-        />
+            />
           </div>
         </div>
       )}

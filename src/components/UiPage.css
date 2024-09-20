@@ -9,8 +9,8 @@
 }
 
 body {
-    background-color: black;
-    color: white;
+    color: black(164, 83, 83);
+    background-color: white;
 }
 
 .modal {
@@ -88,6 +88,7 @@ img {
 }
 
 .display-content {
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,10 +98,11 @@ img {
 }
 
 .display-content2 {
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 450px;
+    margin-left: 500px;
     height: 100%;
     transition: flex-direction 0.3s;
 }
@@ -125,6 +127,10 @@ img {
     font-size: 28px;
 }
 
+.content-text label{
+    margin-left: 10px;
+}
+
 .layout-button {
     margin: 10px;
     padding: 2px;
@@ -145,8 +151,8 @@ img {
     cursor: pointer;
     border-radius: 5px;
     width: 80px;
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
 }
 
 .custom-file-upload {
@@ -154,7 +160,6 @@ img {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: rgb(161, 28, 28);
     color: black;
     border-radius: 5px;
     text-align: center;
@@ -206,8 +211,6 @@ img {
     text-align: center;
     width: 120px;
 }
-
-
 
 .modal-image {
     width: 100px;
@@ -263,7 +266,7 @@ img {
 }
 
 @media (max-width: 768px) {
-    .display-content {
+    .display-content, .display-content2 {
         flex-direction: column;
     }
 }
