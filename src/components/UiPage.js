@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './Welcome.css';
+import './UiPage.css';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import CloseIcon from '@mui/icons-material/Close';
 import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import SquareIcon from '@mui/icons-material/Square';
 
-const Welcome = () => {
+const UiPage = () => {
   const [activeTab, setActiveTab] = useState(null);
   const [title, setTitle] = useState('Welcome to our form');
   const [description, setDescription] = useState('This is a description of the form');
@@ -128,7 +128,11 @@ const Welcome = () => {
           <div className='content-text'>
             <h1>{email}</h1>
             <p>{contact}</p>
-        
+        <input
+            type="text" 
+              placeholder="Type here..." 
+              className="underline-input"
+        />
           </div>
         </div>
       )}
@@ -136,4 +140,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default UiPage;

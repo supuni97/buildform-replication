@@ -1,11 +1,10 @@
 import './App.css';
-import Welcome from './components/Welcome';
-import Email from './components/Email';
+import UiPage from './components/UiPage';
 function App() {
   return (
     <div className="App">
-     <Welcome/>
-     <Email/>
+     <UiPage/>
+     
     </div>
   );
 }

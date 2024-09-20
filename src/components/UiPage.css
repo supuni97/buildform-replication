@@ -96,7 +96,7 @@ img {
     transition: flex-direction 0.3s;
 }
 
-.display-content2{
+.display-content2 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,7 +231,7 @@ img {
 
 .discard-btn:hover {
     background-color: #f8dccc;
-    /* Optional: change background color on hover */
+
 }
 
 
@@ -248,6 +248,19 @@ img {
 }
 
 
+.underline-input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.underline-input:focus {
+    outline: none;
+    border-bottom: 1px solid #000;
+}
 
 @media (max-width: 768px) {
     .display-content {
